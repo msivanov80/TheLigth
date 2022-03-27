@@ -22,22 +22,32 @@ class ViewController: UIViewController {
         updateUI()
     }
 
-    // Traffic lights red, yellow, green 
+
     
     fileprivate func updateUI() {
-        if isLightOn == 1 {
+        switch isLightOn {
+        case 1:
             view.backgroundColor = .red
-        } else if isLightOn == 2 {
+        case 2:
+            view.backgroundColor = .orange
+        case 3:
             view.backgroundColor = .yellow
-        } else {
+        case 4:
             view.backgroundColor = .green
+        case 5:
+            view.backgroundColor = .blue
+        default:
+            view.backgroundColor = .purple
         }
+        
+        
+    
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         isLightOn += 1
         updateUI()
-        if isLightOn == 3 {
+        if isLightOn == 6 {
             isLightOn = 0
         }
     }
